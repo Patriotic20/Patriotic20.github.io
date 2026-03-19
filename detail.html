@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taom haqida batafsil</title>
+    <link rel="stylesheet" href="detail.css" />
+  </head>
+  <body>
+    <div class="detail-card">
+      <h1 id="food-title">Yuklanmoqda...</h1>
+      <p id="food-desc"></p>
+      <a href="index.html" class="back-btn">← Orqaga qaytish</a>
+    </div>
+
+    <script>
+      // BARCHA MA'LUMOTLAR OBYEKTI
+      const foodData = {
+        1: {
+          title: "1. Tuxum barak",
+          desc: "an’anaviy xamirli taom bo‘lib, ichiga tuxum solinishi bilan boshqa barak turlaridan farqlanadi. Ushbu taom ko‘proq Xorazm hududiga xosdir. Uni tayyorlashda yupqa yoyilgan xamir kvadrat shaklda kesilib, ichiga xom tuxum quyiladi va ehtiyotkorlik bilan yopilib, qaynab turgan suvda pishiriladi. Natijada ichki qismi yumshoq, tashqi qismi esa nafis bo‘lgan taom hosil bo‘ladi.",
+        },
+        2: {
+          title: "2. Shivit oshi",
+          desc: "ko‘katli xamir asosida tayyorlanadigan milliy taom bo‘lib, ayniqsa bahor faslida mashhur. Xamirga maydalangan shivit (ukrop) qo‘shilib, unga yashil rang va o‘ziga xos hid beradi. Xamir kesilib qaynatiladi va ustiga go‘sht, sabzavot hamda ziravorlardan tayyorlangan qayla quyib tortiladi.",
+        },
+        3: {
+          title: "3. Besh barmoq",
+          desc: "turkiy xalqlarga xos bo‘lgan qadimiy taomlardan biri. Asosan qaynatilgan go‘sht va yirik kesilgan xamirdan iborat bo‘lib, qo‘l bilan iste’mol qilinishi uning nomlanishiga sabab bo‘lgan. Tayyorlashda go‘sht qaynatilib, xamir alohida pishiriladi va ustiga go‘sht hamda bulon quyib tortiladi.",
+        },
+        4: {
+          title: "4. Kurka dimlamasi",
+          desc: "kurka go‘shtidan tayyorlanadigan to‘yimli va parhezbop taom. Unda kurka go‘shti sabzi, kartoshka, piyoz kabi sabzavotlar bilan birga qozonda dimlab pishiriladi. Past olovda uzoq vaqt dimlanishi taomning mazali va shirali chiqishini ta’minlaydi.",
+        },
+        5: {
+          title: "5. Shashlik",
+          desc: "go‘shtni ochiq olovda pishirish orqali tayyorlanadigan mashhur taom. Go‘sht bo‘laklari oldindan ziravorlar va piyoz bilan marinad qilinib, so‘ng sixga teriladi va ko‘mirda qovuriladi. Bu usul taomga o‘ziga xos tutunli hid va mazali ta’m bag‘ishlaydi.",
+        },
+        6: {
+          title: "6. Sofi oshi",
+          desc: "oddiy tarkibli palov turlaridan biri bo‘lib, unda ortiqcha ziravorlar ishlatilmaydi. Guruch alohida pishiriladi, sabzi va go‘sht yog‘da alohida qovurilib, keyin qo‘shib dimlab pishiriladi. Taomning soddaligi uning tabiiy ta’mini saqlab qoladi.",
+        },
+        7: {
+          title: "7. No‘xatshurak",
+          desc: "no‘xat asosida tayyorlanadigan quyuq taom. No‘xat oldindan ivitilib, go‘sht bilan birga uzoq qaynatiladi. Ba’zan unga sabzavotlar ham qo‘shilib, quyuq sho‘rva yoki yarim suyuq taom holiga keltiriladi.",
+        },
+        8: {
+          title: "8. Non",
+          desc: "o‘zbek milliy dasturxonining ajralmas qismi hisoblanadi. Un, suv, tuz va xamirturush asosida tayyorlanib, asosan tandirda yopiladi. Non nafaqat oziq, balki milliy qadriyat va hurmat ramzi hamdir.",
+        },
+        9: {
+          title: "9. Barracha",
+          desc: "yosh qo‘y go‘shtidan tayyorlanadigan nozik taom. Barra go‘shti yumshoqligi va tez pishishi bilan ajralib turadi. U asosan qovurish yoki dimlash yo‘li bilan tayyorlanadi.",
+        },
+        10: {
+          title: "10. Zarmitan qatig‘i",
+          desc: "tabiiy sut mahsuloti bo‘lib, an’anaviy usulda tayyorlanadi. Sut qaynatilib, sovitilgach achitqi qo‘shiladi va iliq joyda achitiladi. Natijada foydali mikroelementlarga boy qatiq hosil bo‘ladi.",
+        },
+        11: {
+          title: "11. Somsa",
+          desc: "xamir ichiga go‘sht, piyoz yoki sabzavot solinib tayyorlanadigan mashhur pishiriq. U tandirda yoki pechda pishiriladi. Somsa turlari ichki masallig‘iga qarab turlicha bo‘ladi.",
+        },
+        12: {
+          title: "12. Jiz",
+          desc: "mayda to‘g‘ralgan go‘shtning yog‘da qovurilishi orqali tayyorlanadigan taom. U tez tayyorlanadi va odatda issiq holda iste’mol qilinadi.",
+        },
+        13: {
+          title: "13. Baliq",
+          desc: "parhezbop va foydali taomlardan biri. Baliq qovurish, dimlash yoki qaynatish orqali tayyorlanadi va oqsilga boyligi bilan ajralib turadi.",
+        },
+        14: {
+          title: "14. Ko‘k somsa (bichak)",
+          desc: "bahorda yangi chiqqan ko‘katlardan tayyorlanadigan taom. Xamir ichiga ismaloq, piyoz yoki boshqa ko‘katlar solinib, yog‘da qovuriladi yoki tandirda yopiladi.",
+        },
+        16: {
+          title: "16. Hasip",
+          desc: "ichakka solib tayyorlanadigan an’anaviy taom. Ichiga guruch, go‘sht va ziravorlar solinib, qaynatiladi. Bu taom o‘zining to‘yimliligi bilan ajralib turadi.",
+        },
+        17: {
+          title: "17. Norin",
+          desc: "mayda kesilgan xamir va go‘sht aralashmasidan iborat milliy taom. Asosan sovuq holda tortiladi va o‘ziga xos ta’mga ega.",
+        },
+        18: {
+          title: "18. Osh devzira",
+          desc: "maxsus devzira guruchidan tayyorlanadigan palov turi. Ushbu guruch suvni yaxshi shimadi va palovga o‘ziga xos ta’m hamda ko‘rinish beradi.",
+        },
+        19: {
+          title: "19. Achchiq somsa",
+          desc: "ziravorlarga boy, achchiq ta’mli somsa turi. Ichiga qalampir va ziravorlar ko‘proq qo‘shiladi.",
+        },
+        20: {
+          title: "20. Shilpildoq",
+          desc: "yupqa yoyilgan xamirdan tayyorlanadigan taom. U yog‘da qovurilib, yengil va mazali non sifatida iste’mol qilinadi.",
+        },
+        21: {
+          title: "21. Qovurdoq",
+          desc: "go‘sht va piyozdan tayyorlanadigan qovurilgan taom. Ba’zan unga kartoshka ham qo‘shiladi.",
+        },
+        22: {
+          title: "22. Manti",
+          desc: "bug‘da pishiriladigan xamirli taom. Ichiga go‘sht solinib, maxsus idishda bug‘da tayyorlanadi.",
+        },
+        23: {
+          title: "23. Qozon kabob",
+          desc: "qozonda tayyorlanadigan go‘shtli taom. Go‘sht va kartoshka yog‘da qovurilib, keyin dimlanadi.",
+        },
+        24: {
+          title: "24. Do‘lma",
+          desc: "sabzavot yoki tok bargiga o‘ralgan go‘shtli taom. U dimlab pishiriladi va juda mazali bo‘ladi.",
+        },
+        25: {
+          title: "25. Tandir",
+          desc: "tandirda tayyorlanadigan go‘sht va non mahsulotlari umumiy nomi. Tandirda pishirilgan taomlar o‘ziga xos hid va ta’mga ega bo‘ladi.",
+        },
+        26: {
+          title: "26. Go‘ja oshi",
+          desc: "bug‘doy yoki boshqa don mahsulotlaridan tayyorlanadigan suyuq taom. U uzoq qaynatilib, to‘yimli ovqat sifatida iste’mol qilinadi.",
+        },
+        27: {
+          title: "27. Halvoyitar",
+          desc: "un va yog‘dan tayyorlanadigan shirin taom. U tez tayyorlanadi va ko‘pincha bayramlarda tortiladi.",
+        },
+        28: {
+          title: "28. Chuchvara (qovurilgan)",
+          desc: "ichli xamir bo‘laklarining yog‘da qovurilishi orqali tayyorlanadi. Qovurilgan holatda u yanada mazali bo‘ladi.",
+        },
+        29: {
+          title: "29. Qatlama",
+          desc: "qat-qat qilib yoyilgan xamirdan tayyorlanadi. U yog‘da qovurilib yoki tandirda pishiriladi.",
+        },
+        30: {
+          title: "30. Patir",
+          desc: "qalin va yog‘li non turi. Tandirda pishiriladi va uzoq vaqt saqlanadi.",
+        },
+        31: {
+          title: "31. Mevalar",
+          desc: "bahoriy dasturxonning muhim qismi. Yangi va vitaminlarga boy bo‘ladi. Mevalar – bahoriy dasturxonning muhim qismi bo‘lib, ular inson organizmi uchun zarur bo‘lgan vitamin va minerallarga boy hisoblanadi. Bahor faslida ayniqsa olma, nok, banan, apelsin, mandarin, kivi kabi mevalar bilan bir qatorda, mavsumiy ravishda gilos, o‘rik kabi mevalardan tayyorlangan sharbatlar bahoriy dasturxonni bezaydi. Ushbu mevalar nafaqat mazali, balki immunitetni mustahkamlash, organizmni tozalash va umumiy sog‘liqni yaxshilashda muhim ahamiyatga ega.",
+        },
+        32: {
+          title: "32. Sumalak",
+          desc: "Navro‘z bayramining ramziy taomi. Unib chiqqan bug‘doydan uzoq vaqt davomida qaynatilib, shirin va quyuq massa holiga keltiriladi.",
+        },
+        33: {
+          title: "33. Halim",
+          desc: "go‘sht va bug‘doydan tayyorlanadigan quyuq taom. U uzoq qaynatilib, bir xil massaga kelguncha aralashtiriladi.",
+        },
+        34: {
+          title: "34. Tuyoq",
+          desc: "mol tuyog‘idan tayyorlanadigan taom. U uzoq qaynatilib, jelatinli sho‘rva hosil qiladi.",
+        },
+        35: {
+          title: "35. Bahoriy salatlar",
+          desc: "yangi ko‘kat va sabzavotlardan tayyorlanadi. Ular yengil hazm bo‘ladi va foydali hisoblanadi.",
+        },
+        36: {
+          title: "36. Bo‘g‘irsoq",
+          desc: "xamir bo‘laklarini yog‘da qovurish orqali tayyorlanadi. U shirin yoki sho‘r holda iste’mol qilinadi.",
+        },
+      };
+
+      // URL parametrlarini o'qish
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+
+      // Ma'lumotni chiqarish
+      if (id && foodData[id]) {
+        document.getElementById("food-title").innerText = foodData[id].title;
+        document.getElementById("food-desc").innerText = foodData[id].desc;
+        document.title = foodData[id].title; // Sahifa titleni ham o'zgartiradi
+      } else {
+        document.getElementById("food-title").innerText = "Xatolik!";
+        document.getElementById("food-desc").innerText = "Ma'lumot topilmadi.";
+      }
+    </script>
+    <script>
+      function createFlower() {
+        const flower = document.createElement("div");
+        flower.innerHTML = "🌸"; // Gul yoki 🍃 barg
+        flower.style.position = "fixed";
+        flower.style.top = "-20px";
+        flower.style.left = Math.random() * 100 + "vw";
+        flower.style.fontSize = Math.random() * 20 + 10 + "px";
+        flower.style.opacity = Math.random();
+        flower.style.pointerEvents = "none";
+        flower.style.zIndex = "0";
+        flower.style.transition = "transform 5s linear, opacity 5s linear";
+
+        document.body.appendChild(flower);
+
+        setTimeout(() => {
+          flower.style.transform = `translateY(110vh) rotate(${Math.random() * 360}deg)`;
+          flower.style.opacity = "0";
+        }, 100);
+
+        setTimeout(() => {
+          flower.remove();
+        }, 6000);
+      }
+
+      // Har 500 millisoniyada bitta gul yaratish
+      setInterval(createFlower, 500);
+    </script>
+  </body>
+</html>

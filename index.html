@@ -1,92 +1,325 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patriotic20 | Welcome</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #0a0a0a;
-            --text: #ffffff;
-            --accent: #3b82f6;
-            --gradient: linear-gradient(135deg, #3b82f6 0%, #2dd4bf 100%);
-        }
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bahoriy Taomlar - Milliy Oshxona</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Bahoriy taomlar</h1>
+    <div class="main-container">
+      <a href="detail.html?id=1" class="food-card">
+        <span class="food-title">1. Tuxum barak</span>
+        <div class="food-desc">
+          – an’anaviy xamirli taom bo‘lib, ichiga tuxum solinishi bilan boshqa
+          barak turlaridan farqlanadi. Ushbu taom ko‘proq Xorazm hududiga
+          xosdir. Uni tayyorlashda yupqa yoyilgan xamir kvadrat shaklda kesilib,
+          ichiga xom tuxum quyiladi va ehtiyotkorlik bilan yopilib, qaynab
+          turgan suvda pishiriladi. Natijada ichki qismi yumshoq, tashqi qismi
+          esa nafis bo‘lgan taom hosil bo‘ladi.
+        </div>
+      </a>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      <a href="detail.html?id=2" class="food-card">
+        <span class="food-title">2. Shivit oshi</span>
+        <div class="food-desc">
+          – ko‘katli xamir asosida tayyorlanadigan milliy taom bo‘lib, ayniqsa
+          bahor faslida mashhur. Xamirga maydalangan shivit (ukrop) qo‘shilib,
+          unga yashil rang va o‘ziga xos hid beradi. Xamir kesilib qaynatiladi
+          va ustiga go‘sht, sabzavot hamda ziravorlardan tayyorlangan qayla
+          quyib tortiladi.
+        </div>
+      </a>
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
+      <a href="detail.html?id=3" class="food-card">
+        <span class="food-title">3. Besh barmoq</span>
+        <div class="food-desc">
+          – turkiy xalqlarga xos bo‘lgan qadimiy taomlardan biri. Asosan
+          qaynatilgan go‘sht va yirik kesilgan xamirdan iborat bo‘lib, qo‘l
+          bilan iste’mol qilinishi uning nomlanishiga sabab bo‘lgan.
+          Tayyorlashda go‘sht qaynatilib, xamir alohida pishiriladi va ustiga
+          go‘sht hamda bulon quyib tortiladi.
+        </div>
+      </a>
 
-        .container {
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
+      <a href="detail.html?id=4" class="food-card">
+        <span class="food-title">4. Kurka dimlamasi</span>
+        <div class="food-desc">
+          – kurka go‘shtidan tayyorlanadigan to‘yimli va parhezbop taom. Unda
+          kurka go‘shti sabzi, kartoshka, piyoz kabi sabzavotlar bilan birga
+          qozonda dimlab pishiriladi. Past olovda uzoq vaqt dimlanishi taomning
+          mazali va shirali chiqishini ta’minlaydi.
+        </div>
+      </a>
 
-        h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: fadeInUp 1s ease-out;
-        }
+      <a href="detail.html?id=5" class="food-card">
+        <span class="food-title">5. Shashlik</span>
+        <div class="food-desc">
+          – go‘shtni ochiq olovda pishirish orqali tayyorlanadigan mashhur taom.
+          Go‘sht bo‘laklari oldindan ziravorlar va piyoz bilan marinad qilinib,
+          so‘ng sixga teriladi va ko‘mirda qovuriladi. Bu usul taomga o‘ziga xos
+          tutunli hid va mazali ta’m bag‘ishlaydi.
+        </div>
+      </a>
 
-        p {
-            font-size: 1.25rem;
-            color: #94a3b8;
-            max-width: 600px;
-            margin: 0 auto;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
+      <a href="detail.html?id=6" class="food-card">
+        <span class="food-title">6. Sofi oshi</span>
+        <div class="food-desc">
+          – oddiy tarkibli palov turlaridan biri bo‘lib, unda ortiqcha
+          ziravorlar ishlatilmaydi. Guruch alohida pishiriladi, sabzi va go‘sht
+          yog‘da alohida qovurilib, keyin qo‘shib dimlab pishiriladi. Taomning
+          soddaligi uning tabiiy ta’mini saqlab qoladi.
+        </div>
+      </a>
 
-        .glow {
-            position: absolute;
-            width: 40vw;
-            height: 40vw;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 0;
-        }
+      <a href="detail.html?id=7" class="food-card">
+        <span class="food-title">7. No‘xatshurak</span>
+        <div class="food-desc">
+          – no‘xat asosida tayyorlanadigan quyuq taom. No‘xat oldindan ivitilib,
+          go‘sht bilan birga uzoq qaynatiladi. Ba’zan unga sabzavotlar ham
+          qo‘shilib, quyuq sho‘rva yoki yarim suyuq taom holiga keltiriladi.
+        </div>
+      </a>
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="glow"></div>
-    <div class="container">
-        <h1>Welcome to Patriotic20</h1>
-        <p>A place where simple ideas meet premium execution. Explore the vision of excellence.</p>
+      <a href="detail.html?id=8" class="food-card">
+        <span class="food-title">8. Non</span>
+        <div class="food-desc">
+          – o‘zbek milliy dasturxonining ajralmas qismi hisoblanadi. Un, suv,
+          tuz va xamirturush asosida tayyorlanib, asosan tandirda yopiladi. Non
+          nafaqat oziq, balki milliy qadriyat va hurmat ramzi hamdir.
+        </div>
+      </a>
+
+      <a href="detail.html?id=9" class="food-card">
+        <span class="food-title">9. Barracha</span>
+        <div class="food-desc">
+          – yosh qo‘y go‘shtidan tayyorlanadigan nozik taom. Barra go‘shti
+          yumshoqligi va tez pishishi bilan ajralib turadi. U asosan qovurish
+          yoki dimlash yo‘li bilan tayyorlanadi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=10" class="food-card">
+        <span class="food-title">10. Zarmitan qatig‘i</span>
+        <div class="food-desc">
+          – tabiiy sut mahsuloti bo‘lib, an’anaviy usulda tayyorlanadi. Sut
+          qaynatilib, sovitilgach achitqi qo‘shiladi va iliq joyda achitiladi.
+          Natijada foydali mikroelementlarga boy qatiq hosil bo‘ladi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=11" class="food-card">
+        <span class="food-title">11. Somsa</span>
+        <div class="food-desc">
+          – xamir ichiga go‘sht, piyoz yoki sabzavot solinib tayyorlanadigan
+          mashhur pishiriq. U tandirda yoki pechda pishiriladi. Somsa turlari
+          ichki masallig‘iga qarab turlicha bo‘ladi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=12" class="food-card">
+        <span class="food-title">12. Jiz</span>
+        <div class="food-desc">
+          – mayda to‘g‘ralgan go‘shtning yog‘da qovurilishi orqali
+          tayyorlanadigan taom. U tez tayyorlanadi va odatda issiq holda
+          iste’mol qilinadi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=13" class="food-card">
+        <span class="food-title">13. Baliq</span>
+        <div class="food-desc">
+          – parhezbop va foydali taomlardan biri. Baliq qovurish, dimlash yoki
+          qaynatish orqali tayyorlanadi va oqsilga boyligi bilan ajralib turadi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=14" class="food-card">
+        <span class="food-title">14. Ko‘k somsa (bichak)</span>
+        <div class="food-desc">
+          – bahorda yangi chiqqan ko‘katlardan tayyorlanadigan taom. Xamir
+          ichiga ismaloq, piyoz yoki boshqa ko‘katlar solinib, yog‘da qovuriladi
+          yoki tandirda yopiladi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=16" class="food-card">
+        <span class="food-title">16. Hasip</span>
+        <div class="food-desc">
+          – ichakka solib tayyorlanadigan an’anaviy taom. Ichiga guruch, go‘sht
+          va ziravorlar solinib, qaynatiladi. Bu taom o‘zining to‘yimliligi
+          bilan ajralib turadi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=17" class="food-card">
+        <span class="food-title">17. Norin</span>
+        <div class="food-desc">
+          – mayda kesilgan xamir va go‘sht aralashmasidan iborat milliy taom.
+          Asosan sovuq holda tortiladi va o‘ziga xos ta’mga ega.
+        </div>
+      </a>
+
+      <a href="detail.html?id=18" class="food-card">
+        <span class="food-title">18. Osh devzira</span>
+        <div class="food-desc">
+          – maxsus devzira guruchidan tayyorlanadigan palov turi. Ushbu guruch
+          suvni yaxshi shimadi va palovga o‘ziga xos ta’m hamda ko‘rinish
+          beradi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=19" class="food-card">
+        <span class="food-title">19. Achchiq somsa</span>
+        <div class="food-desc">
+          – ziravorlarga boy, achchiq ta’mli somsa turi. Ichiga qalampir va
+          ziravorlar ko‘proq qo‘shiladi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=20" class="food-card">
+        <span class="food-title">20. Shilpildoq</span>
+        <div class="food-desc">
+          – yupqa yoyilgan xamirdan tayyorlanadigan taom. U yog‘da qovurilib,
+          yengil va mazali non sifatida iste’mol qilinadi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=21" class="food-card">
+        <span class="food-title">21. Qovurdoq</span>
+        <div class="food-desc">
+          – go‘sht va piyozdan tayyorlanadigan qovurilgan taom. Ba’zan unga
+          kartoshka ham qo‘shiladi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=22" class="food-card">
+        <span class="food-title">22. Manti</span>
+        <div class="food-desc">
+          – bug‘da pishiriladigan xamirli taom. Ichiga go‘sht solinib, maxsus
+          idishda bug‘da tayyorlanadi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=23" class="food-card">
+        <span class="food-title">23. Qozon kabob</span>
+        <div class="food-desc">
+          – qozonda tayyorlanadigan go‘shtli taom. Go‘sht va kartoshka yog‘da
+          qovurilib, keyin dimlanadi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=24" class="food-card">
+        <span class="food-title">24. Do‘lma</span>
+        <div class="food-desc">
+          – sabzavot yoki tok bargiga o‘ralgan go‘shtli taom. U dimlab
+          pishiriladi va juda mazali bo‘ladi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=25" class="food-card">
+        <span class="food-title">25. Tandir</span>
+        <div class="food-desc">
+          – tandirda tayyorlanadigan go‘sht va non mahsulotlari umumiy nomi.
+          Tandirda pishirilgan taomlar o‘ziga xos hid va ta’mga ega bo‘ladi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=26" class="food-card">
+        <span class="food-title">26. Go‘ja oshi</span>
+        <div class="food-desc">
+          – bug‘doy yoki boshqa don mahsulotlaridan tayyorlanadigan suyuq taom.
+          U uzoq qaynatilib, to‘yimli ovqat sifatida iste’mol qilinadi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=27" class="food-card">
+        <span class="food-title">27. Halvoyitar</span>
+        <div class="food-desc">
+          – un va yog‘dan tayyorlanadigan shirin taom. U tez tayyorlanadi va
+          ko‘pincha bayramlarda tortiladi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=28" class="food-card">
+        <span class="food-title">28. Chuchvara (qovurilgan)</span>
+        <div class="food-desc">
+          – ichli xamir bo‘laklarining yog‘da qovurilishi orqali tayyorlanadi.
+          Qovurilgan holatda u yanada mazali bo‘ladi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=29" class="food-card">
+        <span class="food-title">29. Qatlama</span>
+        <div class="food-desc">
+          – qat-qat qilib yoyilgan xamirdan tayyorlanadi. U yog‘da qovurilib
+          yoki tandirda pishiriladi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=30" class="food-card">
+        <span class="food-title">30. Patir</span>
+        <div class="food-desc">
+          – qalin va yog‘li non turi. Tandirda pishiriladi va uzoq vaqt
+          saqlanadi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=31" class="food-card">
+        <span class="food-title">31. Mevalar</span>
+        <div class="food-desc">
+          – bahoriy dasturxonning muhim qismi. Yangi va vitaminlarga boy
+          bo‘ladi. Mevalar – bahoriy dasturxonning muhim qismi bo‘lib, ular
+          inson organizmi uchun zarur bo‘lgan vitamin va minerallarga boy
+          hisoblanadi. Bahor faslida ayniqsa olma, nok, banan, apelsin,
+          mandarin, kivi kabi mevalar bilan bir qatorda, mavsumiy ravishda
+          gilos, o‘rik kabi mevalardan tayyorlangan sharbatlar bahoriy
+          dasturxonni bezaydi. Ushbu mevalar nafaqat mazali, balki immunitetni
+          mustahkamlash, organizmni tozalash va umumiy sog‘liqni yaxshilashda
+          muhim ahamiyatga ega.
+        </div>
+      </a>
+
+      <a href="detail.html?id=32" class="food-card">
+        <span class="food-title">32. Sumalak</span>
+        <div class="food-desc">
+          – Navro‘z bayramining ramziy taomi. Unib chiqqan bug‘doydan uzoq vaqt
+          davomida qaynatilib, shirin va quyuq massa holiga keltiriladi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=33" class="food-card">
+        <span class="food-title">33. Halim</span>
+        <div class="food-desc">
+          – go‘sht va bug‘doydan tayyorlanadigan quyuq taom. U uzoq qaynatilib,
+          bir xil massaga kelguncha aralashtiriladi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=34" class="food-card">
+        <span class="food-title">34. Tuyoq</span>
+        <div class="food-desc">
+          – mol tuyog‘idan tayyorlanadigan taom. U uzoq qaynatilib, jelatinli
+          sho‘rva hosil qiladi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=35" class="food-card">
+        <span class="food-title">35. Bahoriy salatlar</span>
+        <div class="food-desc">
+          – yangi ko‘kat va sabzavotlardan tayyorlanadi. Ular yengil hazm
+          bo‘ladi va foydali hisoblanadi.
+        </div>
+      </a>
+
+      <a href="detail.html?id=36" class="food-card">
+        <span class="food-title">36. Bo‘g‘irsoq</span>
+        <div class="food-desc">
+          – xamir bo‘laklarini yog‘da qovurish orqali tayyorlanadi. U shirin
+          yoki sho‘r holda iste’mol qilinadi.
+        </div>
+      </a>
     </div>
-</body>
+  </body>
 </html>
