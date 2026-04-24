@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import type { Profile } from "../types";
 import { GraduationCapIcon, MapPinIcon, PencilIcon } from "./icons";
@@ -8,6 +9,8 @@ interface Props {
   profile: Profile;
 }
 
+const BIO_CLAMP_THRESHOLD = 220;
+
 function initials(name: string) {
   const parts = name.trim().split(/\s+/).filter(Boolean);
   if (parts.length === 0) return "?";
@@ -16,6 +19,9 @@ function initials(name: string) {
 }
 
 export function ProfileHero({ profile }: Props) {
+  const [bioExpanded, setBioExpanded] = useState(false);
+  const canClampBio = profile.bio.length > BIO_CLAMP_THRESHOLD;
+
   return (
     <section className={styles.hero}>
       <div className={styles.top}>
@@ -55,7 +61,36 @@ export function ProfileHero({ profile }: Props) {
         )}
       </div>
 
-      {profile.bio && <p className={styles.bio}>{profile.bio}</p>}
+      {profile.bio && (
+        <div className={styles.bioWrap}>
+          <p
+            className={`${styles.bio} ${
+              canClampBio && !bioExpanded ? styles.bioClamped : ""
+            }`}
+          >
+            {profile.bio}
+          </p>
+          {canClampBio && (
+            <button
+              type="button"
+              className={styles.bioToggle}
+              onClick={() => setBioExpanded((v) => !v)}
+            >
+              {bioExpanded ? "Kamroq" : "Ko'proq ko'rsatish"}
+            </button>
+          )}
+        </div>
+      )}
+
+      {profile.skills.length > 0 && (
+        <div className={styles.skills}>
+          {profile.skills.map((skill) => (
+            <span key={skill} className={styles.skill}>
+              {skill}
+            </span>
+          ))}
+        </div>
+      )}
 
       {profile.socials.length > 0 && (
         <div className={styles.socials}>
@@ -77,16 +112,6 @@ export function ProfileHero({ profile }: Props) {
               </a>
             );
           })}
-        </div>
-      )}
-
-      {profile.skills.length > 0 && (
-        <div className={styles.skills}>
-          {profile.skills.map((skill) => (
-            <span key={skill} className={styles.skill}>
-              {skill}
-            </span>
-          ))}
         </div>
       )}
     </section>
