@@ -7,6 +7,7 @@ import {
 } from "../components/icons";
 import { getSocialIcon, normalizeSocialHref } from "../components/socialMeta";
 import { useCourses } from "../hooks/useCourses";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { useProfile } from "../hooks/useProfile";
 import type { Course } from "../types";
 import styles from "./CourseDetailPage.module.css";
@@ -18,6 +19,7 @@ export function CourseDetailPage() {
   const navigate = useNavigate();
 
   const course = courses.find((c) => c.id === id);
+  useDocumentTitle(course?.name ?? "Kurs");
 
   if (!course) {
     return (

@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import { ArrowLeftIcon, PlusIcon } from "../components/icons";
 import { useCourses } from "../hooks/useCourses";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import type { Course } from "../types";
 import styles from "./CoursesListPage.module.css";
 
 export function CoursesListPage() {
+  useDocumentTitle("Kurslar");
   const { courses } = useCourses();
 
   return (

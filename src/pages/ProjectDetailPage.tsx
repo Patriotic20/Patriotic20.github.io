@@ -1,4 +1,5 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { useProjects } from "../hooks/useProjects";
 import {
   ArrowLeftIcon,
@@ -15,6 +16,7 @@ export function ProjectDetailPage() {
   const navigate = useNavigate();
 
   const project = projects.find((p) => p.id === id);
+  useDocumentTitle(project?.name ?? "Loyiha");
 
   if (!project) {
     return (

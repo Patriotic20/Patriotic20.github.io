@@ -2,6 +2,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { CourseForm } from "../components/CourseForm";
 import { ArrowLeftIcon } from "../components/icons";
 import { useCourses } from "../hooks/useCourses";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import type { CourseInput } from "../types";
 import styles from "./CourseFormPage.module.css";
 
@@ -11,6 +12,7 @@ export function EditCoursePage() {
   const navigate = useNavigate();
 
   const course = courses.find((c) => c.id === id);
+  useDocumentTitle(course ? `${course.name} — tahrirlash` : "Kursni tahrirlash");
 
   if (!course) {
     return (

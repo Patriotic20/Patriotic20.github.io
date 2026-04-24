@@ -1,11 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import { ProfileForm } from "../components/ProfileForm";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { useProfile } from "../hooks/useProfile";
 import { ArrowLeftIcon } from "../components/icons";
 import type { Profile } from "../types";
 import styles from "./EditProfilePage.module.css";
 
 export function EditProfilePage() {
+  useDocumentTitle("Profil");
   const { profile, save } = useProfile();
   const navigate = useNavigate();
 

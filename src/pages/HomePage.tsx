@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ProfileHero } from "../components/ProfileHero";
 import { ProjectCard } from "../components/ProjectCard";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { useProfile } from "../hooks/useProfile";
 import { useProjects } from "../hooks/useProjects";
 import { PencilIcon, PlusIcon } from "../components/icons";
@@ -9,6 +10,7 @@ import styles from "./HomePage.module.css";
 export function HomePage() {
   const { projects } = useProjects();
   const { profile } = useProfile();
+  useDocumentTitle(profile?.name);
 
   return (
     <div className={styles.page}>

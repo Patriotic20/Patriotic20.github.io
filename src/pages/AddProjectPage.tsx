@@ -1,11 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import { ProjectForm } from "../components/ProjectForm";
+import { useDocumentTitle } from "../hooks/useDocumentTitle";
 import { useProjects } from "../hooks/useProjects";
 import { ArrowLeftIcon } from "../components/icons";
 import type { ProjectInput } from "../types";
 import styles from "./AddProjectPage.module.css";
 
 export function AddProjectPage() {
+  useDocumentTitle("Yangi loyiha");
   const { add } = useProjects();
   const navigate = useNavigate();
 
