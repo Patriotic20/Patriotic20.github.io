@@ -12,52 +12,48 @@ export function HomePage() {
 
   return (
     <div className={styles.page}>
-      <aside className={styles.sidebar}>
-        {profile ? (
-          <ProfileHero profile={profile} />
-        ) : (
-          <section className={styles.profilePrompt}>
-            <div>
-              <h2 className={styles.promptTitle}>Set up your profile</h2>
-              <p className={styles.promptSubtitle}>
-                Add your name, bio, skills, and links so visitors know who you
-                are.
-              </p>
-            </div>
-            <Link to="/profile/edit" className={styles.promptCta}>
-              <PencilIcon width={14} height={14} />
-              Set up
-            </Link>
-          </section>
-        )}
-      </aside>
+      {profile ? (
+        <ProfileHero profile={profile} />
+      ) : (
+        <section className={styles.profilePrompt}>
+          <div>
+            <h2 className={styles.promptTitle}>Profilingizni sozlang</h2>
+            <p className={styles.promptSubtitle}>
+              Ism, bio, ko'nikmalar va havolalarni qo'shing — tashrif
+              buyuruvchilar kim ekaningizni bilsin.
+            </p>
+          </div>
+          <Link to="/profile/edit" className={styles.promptCta}>
+            <PencilIcon width={14} height={14} />
+            Sozlash
+          </Link>
+        </section>
+      )}
 
-      <section className={styles.content}>
+      <section className={styles.projects}>
         <header className={styles.projectsHeader}>
           <div>
-            <h2 className={styles.sectionTitle}>Projects</h2>
+            <h2 className={styles.sectionTitle}>Loyihalar</h2>
             <p className={styles.sectionSubtitle}>
               {projects.length === 0
-                ? "Nothing here yet."
-                : `${projects.length} ${
-                    projects.length === 1 ? "project" : "projects"
-                  }`}
+                ? "Hali loyiha qo'shilmagan."
+                : `${projects.length} ta loyiha`}
             </p>
           </div>
           <Link to="/add" className={styles.addButton}>
             <PlusIcon width={14} height={14} />
-            Add project
+            Loyiha qo'shish
           </Link>
         </header>
 
         {projects.length === 0 ? (
           <div className={styles.empty}>
             <p className={styles.emptyText}>
-              Add your first project to get started.
+              Birinchi loyihani qo'shib, portfoliongizni boshlang.
             </p>
             <Link to="/add" className={styles.emptyCta}>
               <PlusIcon width={14} height={14} />
-              Add project
+              Loyiha qo'shish
             </Link>
           </div>
         ) : (
