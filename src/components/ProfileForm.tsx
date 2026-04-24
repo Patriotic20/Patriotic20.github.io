@@ -106,6 +106,30 @@ export function ProfileForm({ initial, onSubmit, onCancel }: Props) {
     const trimmedName = name.trim();
     if (!trimmedName) return;
 
+    // Auto-flush a pending social draft that the user typed but didn't click "Add" for.
+    const draftUrl = socialDraft.url.trim();
+    let finalSocials = socials;
+    if (draftUrl) {
+      const err = validateUrl(draftUrl, socialDraft.kind);
+      if (err) {
+        setSocialDraftError(err);
+        return;
+      }
+      const label =
+        socialDraft.label.trim() ||
+        SOCIAL_KINDS.find((k) => k.value === socialDraft.kind)?.label ||
+        "Link";
+      finalSocials = [
+        ...socials,
+        {
+          id: crypto.randomUUID(),
+          kind: socialDraft.kind,
+          label,
+          url: draftUrl,
+        },
+      ];
+    }
+
     const leftoverSkill = skillDraft.trim();
     const finalSkills = leftoverSkill && !skills.includes(leftoverSkill)
       ? [...skills, leftoverSkill]
@@ -118,7 +142,7 @@ export function ProfileForm({ initial, onSubmit, onCancel }: Props) {
       photoUrl: photoUrl.trim() || undefined,
       location: location.trim() || undefined,
       skills: finalSkills,
-      socials,
+      socials: finalSocials,
     });
   };
 
